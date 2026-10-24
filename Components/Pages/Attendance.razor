@@ -1,0 +1,5 @@
+@page "/attendance"
+@inject RegistrationStore Registrations
+@inject EventStore Events
+<h1>Attendance tracker</h1><p>View registrations by event. Demo data resets when the server restarts.</p><div class="stats"><strong>@rows.Count total registrations</strong><strong>@rows.Count(r=>r.AttendanceType=="In person") in person</strong><strong>@rows.Count(r=>r.AttendanceType=="Virtual") virtual</strong></div>@if(rows.Count==0){<p class="notice">No registrations yet. <a href="/">Browse events</a></p>}else{<div class="tablewrap"><table><thead><tr><th>Event</th><th>Attendee</th><th>Type</th><th>Registered (UTC)</th></tr></thead><tbody>@foreach(var r in rows){<tr><td>@(Events.Get(r.EventId)?.Name??"Unknown")</td><td>@r.FullName</td><td>@r.AttendanceType</td><td>@r.RegisteredAtUtc.ToString("yyyy-MM-dd HH:mm")</td></tr>}</tbody></table></div>}
+@code {private IReadOnlyList<Registration> rows=>Registrations.All();}

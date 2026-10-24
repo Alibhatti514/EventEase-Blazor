@@ -1,0 +1,25 @@
+# .NET build files
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Local environment files
+.env
+.env.*
+appsettings.Development.json

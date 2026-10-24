@@ -1,0 +1,2 @@
+<article class="card"><div class="eyebrow">@Event.Date.ToString("ddd, MMM d, yyyy")</div><h2>@Event.Name</h2><p>📍 @Event.Location</p><p>@Event.Description</p><div class="actions"><NavLink class="button" href="@($"/events/{Event.Id}")">View details</NavLink><NavLink class="button secondary" href="@($"/register/{Event.Id}")">Register</NavLink></div></article>
+@code { [Parameter, EditorRequired] public EventItem Event { get; set; } = default!; }

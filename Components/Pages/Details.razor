@@ -1,0 +1,6 @@
+@page "/events/{Id:int}"
+@inject EventStore Store
+@inject SessionState Session
+<PageTitle>Event details | EventEase</PageTitle>
+@if(item is null){<h1>Event not found</h1><p>That event does not exist.</p><a href="/">Browse events</a>}else{<NavLink href="/">← All events</NavLink><section class="detail"><span class="eyebrow">EVENT DETAILS</span><h1>@item.Name</h1><p>📅 @item.Date.ToString("dddd, MMMM d, yyyy · h:mm tt")</p><p>📍 @item.Location</p><p>@item.Description</p><div class="actions"><a class="button" href="/register/@item.Id">Register now</a><a class="button secondary" href="/edit/@item.Id">Edit event (demo)</a></div></section>}
+@code { [Parameter] public int Id {get;set;} private EventItem? item; protected override void OnParametersSet(){item=Store.Get(Id);if(item is not null) Session.VisitedEventIds.Add(Id);} }

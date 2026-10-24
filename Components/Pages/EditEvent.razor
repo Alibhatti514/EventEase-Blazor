@@ -1,0 +1,6 @@
+@page "/edit/{Id:int}"
+@inject EventStore Store
+@inject NavigationManager Nav
+<h1>Edit event</h1><p class="muted">Demonstrates two-way binding, field validation and safe updates.</p>
+@if(model is null){<p>Event not found. <a href="/">Go home</a></p>}else{<EditForm Model="model" OnValidSubmit="Save" FormName="edit-event"><DataAnnotationsValidator/><ValidationSummary/><label>Event name</label><InputText @bind-Value="model.Name" /><label>Date</label><InputDate @bind-Value="model.Date" /><label>Location</label><InputText @bind-Value="model.Location" /><label>Description</label><InputTextArea @bind-Value="model.Description" /><button class="button" type="submit">Save changes</button>@if(error is not null){<p class="error">@error</p>}</EditForm>}
+@code { [Parameter] public int Id {get;set;} private EventItem? model; private string? error; protected override void OnParametersSet(){model=Store.Get(Id);} private void Save(){if(model is not null && Store.Update(model)) Nav.NavigateTo($"/events/{Id}");else error="Please check the event details.";} }

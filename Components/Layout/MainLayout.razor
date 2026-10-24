@@ -1,0 +1,29 @@
+@inherits LayoutComponentBase
+
+<header class="topbar">
+    <NavLink class="brand" href="/" Match="NavLinkMatch.All">
+        ✦ EventEase
+    </NavLink>
+
+    <nav>
+        <NavLink href="/" Match="NavLinkMatch.All">
+            Events
+        </NavLink>
+
+        <NavLink href="/attendance">
+            Attendance
+        </NavLink>
+
+        <NavLink href="/session">
+            My session
+        </NavLink>
+    </nav>
+</header>
+
+<main class="container">
+    @Body
+</main>
+
+<footer class="footer">
+    EventEase · Blazor event management demo · Data is stored in memory
+</footer>

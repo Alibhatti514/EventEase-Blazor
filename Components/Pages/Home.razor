@@ -1,0 +1,95 @@
+@page "/"
+@inject EventStore Store
+
+<PageTitle>Events | EventEase</PageTitle>
+
+<section class="hero">
+    <span class="eyebrow">DISCOVER · CONNECT · ATTEND</span>
+
+    <h1>Find your next great event.</h1>
+
+    <p>
+        Explore curated gatherings and reserve your spot in minutes.
+    </p>
+</section>
+
+<section class="toolbar">
+    <label for="search">Search events</label>
+
+    <input id="search"
+           placeholder="Search by name or city"
+           value="@search"
+           @oninput="HandleSearch" />
+
+    <span>@total event(s)</span>
+</section>
+
+<div class="grid">
+    @foreach (var ev in results)
+    {
+        <EventCard @key="ev.Id" Event="ev" />
+    }
+</div>
+
+@if (results.Count == 0)
+{
+    <p class="notice">No matching events found.</p>
+}
+
+<div class="pagination">
+    <button disabled="@(page == 1)"
+            @onclick="Previous">
+        Previous
+    </button>
+
+    <span>
+        Page @(page) of @Math.Max(1, (int)Math.Ceiling(total / (double)PageSize))
+    </span>
+
+    <button disabled="@(page * PageSize >= total)"
+            @onclick="Next">
+        Next
+    </button>
+</div>
+
+@code {
+    private const int PageSize = 4;
+
+    private string search = "";
+    private int page = 1;
+    private int total = 0;
+
+    private IReadOnlyList<EventItem> results = new List<EventItem>();
+
+    protected override void OnInitialized()
+    {
+        LoadEvents();
+    }
+
+    private void LoadEvents()
+    {
+        results = Store.Search(search, page, PageSize, out total);
+    }
+
+    private void Previous()
+    {
+        page = Math.Max(1, page - 1);
+        LoadEvents();
+    }
+
+    private void Next()
+    {
+        if (page * PageSize < total)
+        {
+            page++;
+            LoadEvents();
+        }
+    }
+
+    private void HandleSearch(ChangeEventArgs e)
+    {
+        search = e.Value?.ToString() ?? "";
+        page = 1;
+        LoadEvents();
+    }
+}
