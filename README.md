@@ -1,6 +1,6 @@
 # EventEase — Blazor Event Management
 
-An educational .NET 8 Blazor Web App (Interactive Server) that covers all three course activities.
+An educational .NET 10 Blazor Web App (Interactive Server) that covers all three course activities.
 
 ## Features
 - Event cards with name, date, location, description, and dynamic data binding.
@@ -10,7 +10,7 @@ An educational .NET 8 Blazor Web App (Interactive Server) that covers all three 
 - Responsive design, no third-party NuGet dependencies.
 
 ## Requirements
-Install **.NET 8 SDK** on macOS. Confirm with `dotnet --version`.
+Install **.NET 10 SDK** on macOS. Confirm with `dotnet --version`.
 
 ## Start
 ```bash
@@ -55,14 +55,16 @@ bash scripts/test-all.sh
 ## AI assistance disclosure
 This initial codebase was generated with **ChatGPT**, not Microsoft Copilot. If your rubric requires Copilot specifically, open this project in VS Code with GitHub Copilot enabled, use Copilot to review or improve each activity, test its changes, and accurately describe what Copilot actually did in your submission. Do not claim Copilot generated code it did not generate.
 
-## Publish to GitHub (after tests pass)
+## GitHub repository
+
+Project repository: https://github.com/Alibhatti514/EventEase-Blazor
+
+After making local changes, update the existing repository:
+
 ```bash
-git init
-git add .
-git commit -m "Build EventEase Blazor app"
-git branch -M main
-# after creating an empty public repository on GitHub:
-git remote add origin https://github.com/YOUR_USERNAME/EventEase.git
-git push -u origin main
+git add README.md
+git commit -m "Update README for .NET 10 and GitHub submission"
+git push origin main
 ```
-Alternatively use `gh auth login` then `gh repo create EventEase --public --source=. --remote=origin --push` after committing. Never commit secrets or real attendee information.
+
+Never commit secrets or real attendee information.
