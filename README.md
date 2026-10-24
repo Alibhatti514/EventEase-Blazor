@@ -52,8 +52,8 @@ bash scripts/test-all.sh
 - Activity 2: DataAnnotations validation, fallback routes, paginated lists, `@key`, tests.
 - Activity 3: `Register.razor`, `Session.razor`, `Attendance.razor`, service classes.
 
-## AI assistance disclosure
-This initial codebase was generated with **ChatGPT**, not Microsoft Copilot.
+## Development tools
+ChatGPT was used to generate the initial application code.
 
 ## GitHub repository
 
