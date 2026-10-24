@@ -53,7 +53,10 @@ bash scripts/test-all.sh
 - Activity 3: `Register.razor`, `Session.razor`, `Attendance.razor`, service classes.
 
 ## Development tools
-ChatGPT was used to generate the initial application code.
+- Visual Studio Code — code editor.
+- .NET 10 SDK — application development and testing.
+- Git and GitHub — version control and repository hosting.
+- ChatGPT — initial code generation.
 
 ## GitHub repository
 
