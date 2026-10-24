@@ -53,7 +53,7 @@ bash scripts/test-all.sh
 - Activity 3: `Register.razor`, `Session.razor`, `Attendance.razor`, service classes.
 
 ## AI assistance disclosure
-This initial codebase was generated with **ChatGPT**, not Microsoft Copilot. If your rubric requires Copilot specifically, open this project in VS Code with GitHub Copilot enabled, use Copilot to review or improve each activity, test its changes, and accurately describe what Copilot actually did in your submission. Do not claim Copilot generated code it did not generate.
+This initial codebase was generated with **ChatGPT**, not Microsoft Copilot.
 
 ## GitHub repository
 
